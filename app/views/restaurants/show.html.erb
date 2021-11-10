@@ -1,11 +1,18 @@
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @restaurant.name %>
-</p>
+</h1>
 
 <p>
   <strong>Address:</strong>
   <%= @restaurant.address %>
 </p>
+
+<p>
+  <% @restaurant.reviews.each do |review| %>
+    <%= review.rating %>
+  <% end %>
+</p>
+
+
 
 <%= link_to "Back to list", restaurants_path %>

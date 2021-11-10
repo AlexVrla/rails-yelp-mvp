@@ -5,6 +5,9 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.find(params[:id])
+    @review = Review.new
+
   end
 
   def new
@@ -25,7 +28,7 @@ class RestaurantsController < ApplicationController
 
   def update
      if @restaurant.update(restaurant_params)
-      redirect_to restaurants_path, notice: 'Restaurant was successfully updated.'
+      redirect_to restaurants_path
     else
       render :edit
     end
@@ -33,7 +36,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_path, notice: 'Restaurant was successfully destroyed.'
+    redirect_to restaurants_path
   end
 
   private
